@@ -1,13 +1,12 @@
 package codingpractice;
 
-import javafx.collections.transformation.SortedList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 /**
- * Created by Wartree on 5/23/17.
+ *  @author krieghb
  */
 public class RunningMedian {
 

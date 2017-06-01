@@ -50,7 +50,7 @@ public abstract class ClothingDictator {
             commandList = commands.substring(weatherType.weatherString.length()).trim().split(", ");
         }
         catch (IllegalArgumentException e) {
-            LOGGER.info("Exception parsing:  {}", e);
+//            LOGGER.info("Exception parsing:  {}", e);
             weatherType = Weather.HOT;
             commandList = null;
         }
@@ -88,12 +88,13 @@ public abstract class ClothingDictator {
                         first = false;
                     }
 
-                    //  If the response failed, break out by throwing exception (appends fail).
-                    if (currentResponse.equals(FAILURE)) {
-                        throw new NumberFormatException("Failed response");
-                    }
 
                     sb.append(currentResponse);
+
+                    //  If the response failed, break out by throwing exception (appends fail).
+                    if (currentResponse.equals(FAILURE)) {
+                        break;
+                    }
                 }
                 catch (NumberFormatException e) {
                     LOGGER.error("List contains a non-integer", e);
